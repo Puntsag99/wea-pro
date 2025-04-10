@@ -1,17 +1,18 @@
 import { Heart, House, MapPin, UserRound } from "lucide-react";
 
-export const Night = ({ weather, selectedCityName }) => {
+export const Night = ({ weather, selectedCityName, loading }) => {
   const date = weather.forecast?.forecastday[0].date;
   const dayTemperature = weather.forecast?.forecastday[0].day.mintemp_c;
   const conDition = weather.current?.condition.text;
+  const cityName = weather.location?.name;
   return (
     <div>
-      <div className=" absolute top-1/2 left-1/2 -translate-x-1/2  -translate-y-1/2  w-[414px] bg-[#111827BF] bg-opacity-75 px-10 py-[56px] flex flex-col items-center rounded-[48px]">
+      <div className=" z-10 absolute top-1/2 left-1/2 -translate-x-1/2  -translate-y-1/2  w-[414px] bg-[#0F141E]/5 backdrop-blur-lg px-10 py-[56px] flex flex-col items-center rounded-[48px]">
         <div className="flex items-center  w-[334px] justify-between ">
           <div className="flex flex-col">
             <h4 className="text-gray-400">{date}</h4>
             <h2 className="h-12 text-5xl font-extrabold text-white">
-              {selectedCityName}
+              {cityName}
             </h2>
           </div>
 
